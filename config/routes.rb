@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'devise/sessions#new'
+  get 'home' => "home#index"
+
 
   devise_for :users
 
