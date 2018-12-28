@@ -1,8 +1,13 @@
-  <form action="/topics" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    Title: <input type="text" name="topic[title]"> <br />
-    Subject: <input type="text" name="topic[subject]"><br />
-    Content: <textarea name="topic[content]"></textarea><br />
-    <input type="hidden" name="topic[user_id]" value="<%= @user.id %>">
-  <button class="btn btn-primary" type="submit">Create Topic</button>
-  </form>
+
+  <div class="row">
+    <div class="col-5 offset-1 mt-5">
+      <form action="/topics" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      Title: <input type="text" name="topic[title]" class="form-control"> <br />
+      Subject: <input type="text" name="topic[subject]" class="form-control" placeholder="ex: Let's Battle! or I need advice on chargers and gear equips!"><br />
+      Content: <textarea name="topic[content]" class="form-control"></textarea><br />
+      <input type="hidden" name="topic[user_id]" value="<%= @user.id %>">
+    <button class="btn btn-primary" type="submit">Create Topic</button>
+    </form>
+    </div>
+</div>

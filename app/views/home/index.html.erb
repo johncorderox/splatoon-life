@@ -21,8 +21,19 @@
 
       <ul class="list-group">
         <% @topics.each do |topic| %>
-  <li class="list-group-item"><%= topic.topics_title %></li>
+  <li class="list-group-item"><%= topic.topics_title %> by <%= topic.users_email%> <a href="/topics/<%=topic.topics_id %>">view </a>
         <% end %>
 </ul>
     </div>
 </div>
+
+
+<h1>dev notes</h1>
+
+add to user model:
+
+username
+favorite weapon
+timezone
+Languages spoken
+voice chat
