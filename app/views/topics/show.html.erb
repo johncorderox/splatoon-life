@@ -1,0 +1,17 @@
+<div class="row">
+<div class="card offset-1 mt-5">
+  <div class="card-header">
+    <%= @topic.title %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= @topic.content %></p>
+      <footer class="blockquote-footer">Topic made by: <cite title="Source Title"><%= @topic.user.email %></cite></footer>
+    </blockquote>
+  </div>
+</div>
+</div>
+
+add comment here
+
+if comment is yours or topic is yours you can delete it
