@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'comments/index'
   root 'welcome#index'
 
-  get 'home' => "home#index"
+  get 'home'     => "home#index"
+
+  post '/comments' => "comments#create"
 
 
   devise_for :users
   resources :topics
+
 
 end
