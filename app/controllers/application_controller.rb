@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :current_password, :location])
+    devise_parameter_sanitizer.permit(:account_update, keys:
+      [:email, :current_password, :location, :username, :splatoon_game, :favorite_weapon, :timezone, :language
+      ])
   end
 
 
