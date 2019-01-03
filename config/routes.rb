@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'home'     => "home#index"
+  get 'home'         => "home#index"
 
-  post '/comments' => "comments#create"
+  post '/new_comment' => "comments#new_comment"
 
 
   devise_for :users

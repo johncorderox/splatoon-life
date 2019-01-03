@@ -14,7 +14,7 @@
 </div>
 <div class="col-4">
 <button type="button" class="btn btn-primary mt-5">Add Comment</button>
-  <form action="/comments" method="POST">
+  <form action="/new_comment" method="POST">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <textarea name="comment[content]" class="form-control mt-4"></textarea>
     <input type="hidden" name="comment[topic_id]" value="<%= @topic.id %>">
@@ -23,13 +23,11 @@
   </form>
 </div>
 </div>
-
-
-add comment here
-
-if comment is yours or topic is yours you can delete it
-t.string :content
-t.references :topic, foreign_key: true
-t.references :user, foreign_key: true
-
-t.timestamps
+<div class="row">
+  <div class="col-8 offset-1 mt-4">
+    <ul class="list-group">
+      <% @comments.each do |comment| %>
+        <li class="list-group-item"><%= comment.content %></li>
+      <% end %>
+  </div>
+</div>

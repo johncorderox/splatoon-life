@@ -1,11 +1,12 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
   def show
     @topic = Topic.find(params[:id])
+     @comments = Comment.where(topic_id: params[:id]).order(created_at: :desc)
   end
 
   def new
@@ -23,6 +24,7 @@ class TopicsController < ApplicationController
 
   def destroy
   end
+
 
   private
 
