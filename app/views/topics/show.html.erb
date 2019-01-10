@@ -13,7 +13,7 @@
 </div>
 </div>
 <div class="col-4">
-<button type="button" class="btn btn-primary mt-5">Add Comment</button>
+<button type="button" class="btn btn-primary mt-5" id="add-comment">Add Comment</button>
   <form action="/new_comment" method="POST">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <textarea name="comment[content]" class="form-control mt-4"></textarea>
