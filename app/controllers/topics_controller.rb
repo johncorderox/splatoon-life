@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-     @comments = Comment.where(topic_id: params[:id]).order(created_at: :desc)
+    @comments = Comment.where(topic_id: params[:id]).order(created_at: :desc)
   end
 
   def new
