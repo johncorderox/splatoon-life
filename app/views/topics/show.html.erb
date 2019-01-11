@@ -1,19 +1,29 @@
 <div class="row">
   <div class="col-10">
-<div class="card offset-1 mt-5">
-  <div class="card-header">
-    <%= @topic.title %>
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p><%= @topic.content %></p>
-      <footer class="blockquote-footer mb-4">Topic made by: <cite title="Source Title"><%= @topic.user.email %></cite> on <%= @topic.created_at %></footer>
-    </blockquote>
-    <% if current_user.id == @topic.user.id %>
-      <%= link_to '<button type="button" class="btn btn-primary">Edit My Topic</button>'.html_safe, edit_topic_path(@topic.id) %>
-      <button class="btn btn-danger">Delete My Topic</button>
-    <% end %>
-  </div>
+
+
+
+    <div class="card text-center offset-1 mt-5">
+      <div class="card-header">
+        <%= @topic.title %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @topic.subject %></h5>
+        <p class="card-text"><%= @topic.content %></p>
+          <footer class="blockquote-footer mb-4">Topic made by: <cite title="Source Title"><%= @topic.user.email %></cite> on <%= @topic.created_at %></footer>
+      </div>
+      <div class="card-footer text-muted">
+        <% if current_user.id == @topic.user.id %>
+          <%= link_to '<button type="button" class="btn btn-primary">Edit My Topic</button>'.html_safe, edit_topic_path(@topic.id) %>
+        <%= link_to '<button type="button" class="btn btn-danger">Delete My Topic</button>'.html_safe, "/topics/#{@topic.id}",
+         :data => {:confirm => 'Do you really want to delete?'}, method: :delete %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
 </div>
 </div>
 </div>
@@ -21,10 +31,11 @@
 <div class="col-9 offset-1">
 <h2 class=" mt-5">Comments (<%= @comments.count%>)</h2>
   <form action="/new_comment" method="POST">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <textarea name="comment[content]" class="form-control mt-4"></textarea>
     <input type="hidden" name="comment[topic_id]" value="<%= @topic.id %>">
     <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="topic_id" value="<%= @topic.id %>">
     <button type="submit" class="btn btn-info mt-4">Add Comment</button>
   </form>
 </div>
@@ -33,7 +44,12 @@
   <div class="col-8 offset-1 mt-5">
     <ul class="list-group">
       <% @comments.each do |comment| %>
-        <li class="list-group-item"><%= comment.content %></li>
+        <li class="list-group-item"><%= comment.content %>
+          <% if current_user.id = comment.user_id %>
+          <%= link_to '<button type="button">Delete My Comment</button>'.html_safe, "/comments/#{comment.id}",
+           :data => {:confirm => 'Do you really want to delete?'}, method: :delete %>
+          <% end %>
+        </li>
       <% end %>
   </div>
 </div>
