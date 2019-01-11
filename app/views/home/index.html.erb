@@ -1,6 +1,6 @@
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-6 mt-5">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"></h5>
@@ -15,8 +15,8 @@
 
 
 
-    <div class="col-6">
-
+    <div class="col-6 mt-5">
+      <h2>Recent Topics</h2>
       <ul class="list-group">
         <% @topics.each do |topic| %>
   <li class="list-group-item"><%= topic.topics_title %> by <%= topic.users_email%> <a href="/topics/<%=topic.topics_id %>">view </a>
@@ -31,4 +31,4 @@
 add friend code
 switch/wii u
 
-do u want ur code public? 
+do u want ur code public?

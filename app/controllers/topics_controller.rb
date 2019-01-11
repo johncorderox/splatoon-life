@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
   end
 
@@ -22,6 +23,11 @@ class TopicsController < ApplicationController
     end
   end
 
+  def edit
+    @edit_topic = Topic.find(params[:id])
+    redirect_to home_path, alert: "You do not have access to view this page!" unless current_user.id == @edit_topic.user_id
+  end
+
   def destroy
   end
 
@@ -30,5 +36,8 @@ class TopicsController < ApplicationController
 
     def new_topic
       params.require(:topic).permit(:title, :subject, :content, :user_id)
+    end
+
+    def update_topic
     end
 end

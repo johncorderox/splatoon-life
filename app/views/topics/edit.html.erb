@@ -1,0 +1,15 @@
+<div class="row">
+<div class="col-6 offset-1">
+  <form action="/topics/<%= @edit_topic.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  Title: <input type="text" name="topic[title]" class="form-control" value="<%= @edit_topic.title %>"> <br />
+  Subject: <input type="text" name="topic[subject]" class="form-control" value="<%= @edit_topic.subject %>"><br />
+  Content: <textarea name="topic[content]" class="form-control"><%= @edit_topic.content %></textarea><br />
+
+<button class="btn btn-primary" type="submit">Update Topic</button>
+</form>
+</div>
+</div>
+
+
+if this isnt the topic u made u cant edit

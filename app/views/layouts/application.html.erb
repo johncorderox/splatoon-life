@@ -29,11 +29,16 @@
           <a class="nav-link" href="<%= home_path %>">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="<%= edit_user_registration_path %>">My Profile <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<%= topics_path %>">Topics</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="<%= new_topic_path %>">New Topic + <span class="sr-only">(current)</span></a>
-        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile Settings
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= edit_user_registration_path %>">Edit Profile</a>
+        </div>
+      </li>
       </ul>
     </div>
     <% end %>
