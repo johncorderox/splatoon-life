@@ -2,6 +2,9 @@ class CommentsController < ApplicationController
   def index
   end
 
+  def edit
+  end
+
   def new_comment
     @new_comment = Comment.new(add_comment)
     if @new_comment.save
@@ -13,6 +16,7 @@ class CommentsController < ApplicationController
 
   def delete_comment
     @delete_comment = Comment.find(params[:id]).delete
+    flash[:notice] = "Comment Deleted"
     redirect_to home_path
   end
 

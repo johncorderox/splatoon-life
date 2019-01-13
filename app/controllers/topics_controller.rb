@@ -17,7 +17,13 @@ class TopicsController < ApplicationController
   end
 
   def update
-
+    @update_topic = Topic.find(params[:id])
+    if @update_topic.update(update_topic)
+      redirect_to home_path
+      flash[:notice] = "Topic Updated!"
+    else
+      redirect_to :back, flash[:alert] = "There was a problem updating the topic!"
+    end
   end
 
   def create
@@ -48,6 +54,7 @@ class TopicsController < ApplicationController
     end
 
     def update_topic
-      params.require(:topic_u).permit(:title, :subject, :content, :topic_id)
+      params.require(:topic_u).permit(:topic_id, :title, :subject, :content)
     end
+
 end

@@ -1,13 +1,11 @@
 <div class="row">
 <div class="col-6 offset-1">
   <form action="/topics/<%= @edit_topic.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="topic_u[topic_id]" value="<%= @edit_topic.id %>">
   <input name="_method" type="hidden" value="patch" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   Title: <input type="text" name="topic_u[title]" class="form-control" value="<%= @edit_topic.title %>"> <br />
   Subject: <input type="text" name="topic_u[subject]" class="form-control" value="<%= @edit_topic.subject %>"><br />
   Content: <textarea name="topic_u[content]" class="form-control"><%= @edit_topic.content %></textarea><br />
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <button class="btn btn-primary" type="submit">Update Topic</button>
 </form>
 <a href="/topics/<%= @edit_topic.id %>">Back</a>
