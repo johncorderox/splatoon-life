@@ -7,10 +7,11 @@ class User < ApplicationRecord
  has_many :topics
  has_many :comments
 
- validates :username, presence: true, length: {minimum: 1}
+ validates :username, :favorite_weapon, :splatoon_game, :timezone, :voice_chat, :language, :friend_code,
+           presence: true, length: {minimum: 1}
 
- validates_uniqueness_of :email, :username
+ validates_inclusion_of :voice_chat, :in =>[true, false]
 
-
+ validates_uniqueness_of :email, :username, :friend_code
 
 end
