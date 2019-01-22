@@ -7,9 +7,10 @@ test 'valid user' do
 end
 
 test 'invalid without username' do
-
+user = User.new(email: "abc@123.com", encrypted_password: "$2a$11$KO4PQA6kxTgn.hwhFJWSU.fRdNt7q7wbjeYXXV.7b8VcpzePteCu2", location: "USA", username: "test", favorite_weapon: "Splat Charger", splatoon_game: "Splatoon 2", timezone: "PST", voice_chat: true, language: "English", friend_code: "AHS-13-AS33SDX")
+assert user.valid?
 end
-
+#
 test 'invalid without email' do
 
 end
